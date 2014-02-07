@@ -110,6 +110,7 @@ public class ReservedTimeForm extends UifFormBase implements ReservedTime {
 	private String requestedLearningPlanId;
 	private String id;
 	private String description;
+    private String termId;
 	private boolean allDay;
 	private boolean sunday;
 	private boolean monday;
@@ -204,7 +205,15 @@ public class ReservedTimeForm extends UifFormBase implements ReservedTime {
 		this.untilDate = toDate(untilDateStr, this.untilDate);
 	}
 
-	@Override
+    public String getTermId() {
+        return termId;
+    }
+
+    public void setTermId(String termId) {
+        this.termId = termId;
+    }
+
+    @Override
 	public boolean isSunday() {
 		return sunday;
 	}
