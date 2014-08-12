@@ -97,10 +97,7 @@ var KsapSbCalendar = {
             }
             for (var i = 0; i < source.events.length; i++) {
                 if (!source.events[i].tbd) {
-                    var courseCode = source.events[i].popoverContent.courseCd;
-                    var curr = jQuery.trim(courseCode.substr(0, courseCode.length - 3));
-                    var num = jQuery.trim(courseCode.substr(courseCode.length - 3));
-                    source.events[i].title = '<div class="scheduleCalendar__id">' + (!isSaved ? scheduleNumber.toString() : "P" + scheduleNumber.toString()) + '</div><div class="scheduleCalendar__code">' + curr + '<br>' + num +'</div>';
+                    source.events[i].title = (!isSaved) ? scheduleNumber.toString() : "P" + scheduleNumber.toString();
                     if (typeof source.events[i].start === "number") {
                         source.events[i].start = new Date((source.events[i].start + ((!isSaved) ? scheduleNumber : 30 + scheduleNumber)) * 1000).toString();
                     } else {

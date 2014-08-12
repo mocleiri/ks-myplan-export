@@ -111,9 +111,6 @@ function toggleSections(actionId, toggleId, showClass, showText, hideText) {
             jQuery(this).show().next("tr.collapsible").show().next("tr.collapsible").show();
         });
         jQuery("#" + toggleId + " .planTerm__activitiesInstitution").show();
-        jQuery("#" + toggleId + " table").each(function () {
-            if (jQuery(this).find("tbody tr:visible").length > 0) jQuery(this).find("thead").show();
-        });
         action.text(hideText).data("hidden", false);
     } else {
         group.each(function () {
@@ -121,9 +118,6 @@ function toggleSections(actionId, toggleId, showClass, showText, hideText) {
             var toggle = jQuery(this).find("a[id^='toggle_']");
         });
         jQuery("#" + toggleId + " .planTerm__activitiesInstitution").hide();
-        jQuery("#" + toggleId + " table").each(function () {
-           if (jQuery(this).find("tbody tr:visible").length === 0) jQuery(this).find("thead").hide();
-        });
         action.text(showText).data("hidden", true);
     }
 }
@@ -725,7 +719,7 @@ function toggleSectionAction(actionId, regId, action, data, primaryPlan) {
 
 function removeSectionRow(actionId) {
     var row = jQuery("#" + actionId).parents("tr.courseActivities--planned");
-    row.nextUntil(".courseActivities--primary, .courseActivities--secondary").andSelf().remove();
+    row.remove().next("tr.collapsible").remove().next("tr.collapsible").remove();
 }
 
 function fnUpdateQuarterViewCredits(termCredits) {

@@ -461,12 +461,12 @@
                 &lt;col style=&quot;width: 22px;&quot;&gt;
                 &lt;col style=&quot;width: 157px;&quot;&gt;
                 &lt;col style=&quot;width: 87px;&quot;&gt;
-                &lt;col style=&quot;width: 180px;&quot;&gt;
-                &lt;col style=&quot;width: 81px;&quot;&gt;
+                &lt;col style=&quot;width: 171px;&quot;&gt;
+                &lt;col style=&quot;width: 90px;&quot;&gt;
                 &lt;col style=&quot;width: 111px;&quot;&gt;
                 &lt;col style=&quot;width: 70px;&quot;&gt;
             ');
-            table.find('.courseActivities__instructor, .courseActivities__other').parents('td').each(function() {
+            table.find('.courseActivities__meetingData, .courseActivities__instructor, .courseActivities__other').parents('td').each(function() {
                 jQuery(this).attr('colspan', '2');
             });
             table.find('.courseActivities__additionalDetails').parents('td').each(function() {
@@ -497,7 +497,7 @@
             <bean parent="KSAP-VerticalBoxGroup"/>
         </property>
         <property name="header.lowerGroup.render" value="false"/>
-        <property name="layoutManager.numberOfColumns" value="6"/>
+        <property name="layoutManager.numberOfColumns" value="5"/>
         <property name="layoutManager.id" value="academicRecord_@{dataObject.atpId}"/>
         <property name="layoutManager.cssClasses" value="courseActivities__table courseActivities__table--registered"/>
         <property name="items">
@@ -555,11 +555,7 @@
                 </bean>
                 <bean parent="activityMeetingData" p:render="@{#line.activityOfferingItem ne null}" p:colSpan="1"
                       p:rowSpan="1">
-                    <property name="propertyName" value="activityOfferingItem.activityItemMeeting"/>
-                </bean>
-                <bean parent="activityLocationData" p:render="@{#line.activityOfferingItem ne null}" p:colSpan="1"
-                      p:rowSpan="1">
-                    <property name="propertyName" value="activityOfferingItem.activityItemLocation"/>
+                    <property name="propertyName" value="activityOfferingItem.activityItem"/>
                 </bean>
                 <bean parent="KSAP-SimpleDataField" p:render="@{#line.activityOfferingItem ne null}" p:colSpan="1"
                       p:rowSpan="1">
@@ -632,7 +628,7 @@
                     </property>
                 </bean>
                 <bean parent="KSAP-HorizontalFieldGroup" p:render="@{#line.activityOfferingItem ne null}" p:valign="TOP"
-                      p:colSpan="4" p:rowSpan="1">
+                      p:colSpan="3" p:rowSpan="1">
                     <property name="cssClasses" value="courseActivities__regCode"/>
                     <property name="items">
                         <list>
@@ -786,13 +782,13 @@
                 tableHead.before('
                     &lt;col style=&quot;width: 62px;&quot;&gt;
                     &lt;col style=&quot;width: 103px;&quot;&gt;
-                    &lt;col style=&quot;width: 180px;&quot;&gt;
-                    &lt;col style=&quot;width: 88px;&quot;&gt;
+                    &lt;col style=&quot;width: 268px;&quot;&gt;
                     &lt;col style=&quot;width: 50px;&quot;&gt;
                     &lt;col style=&quot;width: 100px;&quot;&gt;
                     &lt;col style=&quot;width: 80px;&quot;&gt;
                     &lt;col style=&quot;width: 45px;&quot;&gt;
                 ');
+                tableHead.remove();
             }
         "/>
         <property name="items">
@@ -814,7 +810,6 @@
                 </bean>
                 <bean parent="activityType"/>
                 <bean parent="activityMeetingData"/>
-                <bean parent="activityLocationData"/>
                 <bean parent="activityRegCode"/>
                 <bean parent="activityEnrlRestr"/>
                 <bean parent="activityEnrlData" p:render="@{#line.stateKey EQ 'active'}"/>
@@ -840,8 +835,8 @@
                     </property>
                 </bean>
                 <bean parent="activityInstructor"/>
-                <bean parent="activityOther"/>
-                <bean parent="activityAdditionalDetails"/>
+                <bean parent="activityOther" p:colSpan="3"/>
+                <bean parent="activityAdditionalDetails" p:colSpan="5"/>
             </list>
         </property>
     </bean>
