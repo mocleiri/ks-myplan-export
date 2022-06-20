@@ -134,7 +134,7 @@
         <xalan.version>2.7.1</xalan.version>
         <xercesImpl.version>2.9.1</xercesImpl.version>
         <oracle.ojdbc.version>11.2.0.2.0</oracle.ojdbc.version>
-        <mysql.connector.version>5.1.18</mysql.connector.version>
+        <mysql.connector.version>8.0.28</mysql.connector.version>
         <backport-util-concurrent.version>3.1</backport-util-concurrent.version>
         <jsr107cache.version>1.0</jsr107cache.version>
         <net.sf.jasperreports.version>4.0.1</net.sf.jasperreports.version>
