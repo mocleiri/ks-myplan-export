@@ -112,7 +112,7 @@
         <cglib-nodep.version>2.2.2</cglib-nodep.version>
         <cxf.version>2.7.0</cxf.version>
         <ks.cxf.javadoc.version>2.3.3</ks.cxf.javadoc.version>
-        <derby.version>10.4.2.0</derby.version>
+        <derby.version>10.14.2.0</derby.version>
         <eclipselink.version>1.0</eclipselink.version>
         <ehcache.version>2.5.0</ehcache.version>
         <gwt.version>2.0.4</gwt.version>
